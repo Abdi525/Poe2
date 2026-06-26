@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Poe2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Cybersecurity Awareness Bot" Height="550" Width="800" Background="#1A1B26">
 
     <Window.Resources>
-        
-        <Style TargetType="Button">
+        <Style 
+            TargetType="Button"
+            >
             
             <Setter Property="Background" Value="#7AA2F7"/>
             <Setter Property="Foreground" Value="#1A1B26"/>
@@ -21,10 +22,20 @@
                 
                 <Setter.Value>
                     
-                    <ControlTemplate TargetType="Button">
+                    <ControlTemplate 
+                        TargetType="Button"
+                        >
                         
-                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Border 
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="6"
+                            >
+                            
+                            <ContentPresenter 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"
+                                />
+                            
                         </Border>
                         
                     </ControlTemplate>
@@ -34,8 +45,16 @@
             </Setter>
             
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#A9B1D6"/>
+                <Trigger 
+                    Property="IsMouseOver" 
+                    Value="True"
+                    >
+                    
+                    <Setter 
+                        Property="Background" 
+                        Value="#A9B1D6"
+                        />
+                    
                 </Trigger>
             </Style.Triggers>
             
@@ -44,7 +63,6 @@
     </Window.Resources>
 
     <Grid>
-
         <Grid 
             x:Name="WelcomeGrid" 
             Visibility="Visible"
@@ -54,14 +72,7 @@
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
                 >
-
-                <Image 
-                    Source="/Logo.png" 
-                    Height="100" 
-                    Margin="0,0,0,15" 
-                    Stretch="Uniform"
-                    />
-
+                
                 <TextBlock 
                     FontFamily="Consolas" 
                     Foreground="#9ECE6A" 
@@ -77,10 +88,9 @@
                     <Run Text="/ /\/ /\ \"/><LineBreak/>
                     <Run Text="\ \/ /\/ /"/><LineBreak/>
                     <Run Text=" \ \/\ \/"/><LineBreak/>
-                    <Run Text=" /\ \/\ \"/><LineBreak/>
-                    <Run Text="/ /\/ /\ \"/><LineBreak/>
+                    <Run Text="  /\ \/\ \"/><LineBreak/>
+                    <Run Text=" / /\/ /\ \"/><LineBreak/>
                     <Run Text="/ / / /\ \ \"/><LineBreak/>
-                    <Run Text="/ / / /\ \ \ \"/><LineBreak/>
                     <Run Text="/_/_/_/  \_\_\_\"/>
                     
                 </TextBlock>
@@ -104,8 +114,7 @@
                 
                 <Button 
                     Content="Start Learning" 
-                    Width="180" 
-                    Height="42" 
+                    Width="180" Height="42" 
                     FontSize="15" 
                     Click="Start_Click"
                     />
@@ -119,10 +128,10 @@
             Visibility="Collapsed"
             >
             
-            <StackPanel
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center"
-                      >
+            <StackPanel 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                >
                 
                 <TextBlock 
                     Text="What is your name?" 
@@ -184,6 +193,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <TextBlock 
@@ -202,39 +212,35 @@
                 Padding="15"
                 >
                 
-                <Grid>
+                <ScrollViewer 
+                    x:Name="ChatScroller" 
+                    VerticalScrollBarVisibility="Auto"
+                    >
                     
-                    <ScrollViewer 
-                        x:Name="ChatScroller" 
-                        VerticalScrollBarVisibility="Auto"
-                        >
-                        
-                        <RichTextBox 
-                            x:Name="ChatListBox" 
-                            Background="Transparent" 
-                            BorderThickness="0" 
-                            Foreground="#C0CAF5" 
-                            FontSize="15" 
-                            IsReadOnly="True" 
-                            Block.LineHeight="6"
-                            />
-                        
-                    </ScrollViewer>
+                    <RichTextBox 
+                        x:Name="ChatListBox" 
+                        Background="Transparent" 
+                        BorderThickness="0" 
+                        Foreground="#C0CAF5" 
+                        FontSize="15" 
+                        IsReadOnly="True" 
+                        Block.LineHeight="6"
+                        />
                     
-                </Grid>
+                </ScrollViewer>
                 
             </Border>
 
             <Grid 
                 Grid.Row="2" 
-                Margin="0,15,0,0"
+                Margin="0,15,0,15"
                 >
                 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-
+                
                 <Border 
                     Background="#24283B" 
                     CornerRadius="6" 
@@ -265,9 +271,37 @@
                     />
                 
             </Grid>
+
+            <StackPanel 
+                Grid.Row="3"
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center"
+                >
+                
+                <Button 
+                    Content="Start Quiz" 
+                    Margin="5" 
+                    Click="Action_StartQuiz_Click"
+                    />
+                
+                <Button 
+                    Content="View Tasks" 
+                    Margin="5" 
+                    Click="Action_ViewTasks_Click"
+                    />
+                
+                <Button 
+                    Content="Activity Log" 
+                    Margin="5" 
+                    Click="Action_ViewLog_Click"
+                    />
+                
+            </StackPanel>
             
         </Grid>
-
+        
     </Grid>
     
 </Window>
+ 
+    
